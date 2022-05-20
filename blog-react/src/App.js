@@ -7,10 +7,11 @@ import PostEdit from "./components/pages/PostEdit";
 import Header from "./components/views/Header";
 import Footer from "./components/views/Footer";
 import NotFound from "./components/pages/NotFound";
+import { Container } from "react-bootstrap";
 
 const App = () => {
 	return (
-		<main>
+		<Container>
 			<Header />
 			<Routes>
 				<Route path='/' element={<Home />} />
@@ -21,7 +22,7 @@ const App = () => {
 				<Route path='*' element={<NotFound />} />
 			</Routes>
 			<Footer />
-		</main>
+		</Container>
 	);
 };
 
