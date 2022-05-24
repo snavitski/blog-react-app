@@ -5,9 +5,11 @@ import PostPage from "./components/pages/PostPage";
 import PostAdd from "./components/pages/PostAdd";
 import PostEdit from "./components/pages/PostEdit";
 import Header from "./components/views/Header";
+import NavBar from "./components/views/NavBar";
 import Footer from "./components/views/Footer";
 import NotFound from "./components/pages/NotFound";
 import { Container } from "react-bootstrap";
+
 
 const App = () => {
 	return (

@@ -1,82 +1,20 @@
-import { useState } from "react";
-import { Form, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { addPost } from "../../../redux/postsReducer";
+import {useNavigate} from "react-router-dom";
+import PostForm from "../PostForm";
 
 const AddPostForm = () => {
 	const dispatch = useDispatch();
 
-	const [title, setTitle] = useState("");
-	const [author, setAuthor] = useState("");
-	const [publishedDate, setPublishedDate] = useState("");
-	const [shortDescription, setShortDescription] = useState("");
-	const [content, setContent] = useState("");
+	const navigate = useNavigate();
 
-	const handleSubmit = e => {
-		e.preventDefault();
-		dispatch(
-			addPost({ title, author, publishedDate, shortDescription, content })
-		);
-		setTitle("");
-		setAuthor("");
-		setPublishedDate("");
-		setShortDescription("");
-		setContent("");
+	const handleSubmit = post => {
+		dispatch(addPost(post));
+			navigate("/");
 	};
 
 	return (
-		<Form onSubmit={handleSubmit}>
-			<Form.Label className='mt-3'>Title</Form.Label>
-			<Form.Control
-				className='mb-3 w-50'
-				type='text'
-				placeholder='Title'
-				value={title}
-				onChange={e => setTitle(e.target.value)}
-			/>
-
-			<Form.Label>Author</Form.Label>
-			<Form.Control
-				className='mb-3 w-50'
-				type='text'
-				placeholder='Author'
-				value={author}
-				onChange={e => setAuthor(e.target.value)}
-			/>
-
-			<Form.Label>Published Data</Form.Label>
-			<Form.Control
-				className='mb-3 w-50'
-				type='text'
-				placeholder='DD-MM-YYYY'
-				value={publishedDate}
-				onChange={e => setPublishedDate(e.target.value)}
-			/>
-
-			<Form.Label>Short Description</Form.Label>
-			<Form.Control
-				className='mb-3'
-				as='textarea'
-				rows={2}
-				placeholder='Short Description'
-				value={shortDescription}
-				onChange={e => setShortDescription(e.target.value)}
-			/>
-
-			<Form.Label>Main content</Form.Label>
-			<Form.Control
-				className='mb-3'
-				as='textarea'
-				rows={4}
-				placeholder='Short Description'
-				value={content}
-				onChange={e => setContent(e.target.value)}
-			/>
-
-			<Button variant='primary' type='submit'>
-				Add Post
-			</Button>
-		</Form>
+		<PostForm action={handleSubmit} actionText='Add post' />
 	);
 };
 

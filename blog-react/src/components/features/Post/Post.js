@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Modal, Button, Container, Row, Col } from "react-bootstrap";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getPostbyId } from "../../redux/postsReducer";
+import { getPostById } from "../../redux/postsReducer";
 import { deletePost } from "../../redux/postsReducer";
 
 const Post = () => {
 	const { id } = useParams();
-	const postData = useSelector(state => getPostbyId(state, id));
+	const postData = useSelector(state => getPostById(state, id));
 
 	const [showModal, setShowModal] = useState(false);
 	const dispatch = useDispatch();
