@@ -1,5 +1,5 @@
 const PostAdd = () => {
-	return <h2>Post Add</h2>;
+	return <h2>PostAdd</h2>;
 };
 
 export default PostAdd;

@@ -2,8 +2,8 @@ import { Card } from "react-bootstrap";
 
 const Footer = () => {
 	return (
-		<Card.Footer className='text-muted text-center borde-0'>
-			Bog spawacza
+		<Card.Footer className='bg-white border-0 text-center text-muted'>
+			Blog S. Navitski
 		</Card.Footer>
 	);
 };

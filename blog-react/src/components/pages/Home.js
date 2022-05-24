@@ -1,5 +1,5 @@
-import { Container } from "react-bootstrap";
-import AllPosts from "../features/AllPosts";
+import { Container, Button, Row, Col } from "react-bootstrap";
+import AllPosts from "../features/AllPosts/AllPosts";
 import { Link } from "react-router-dom";
 
 const Home = () => {
