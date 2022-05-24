@@ -1,14 +1,13 @@
 import { Card, Button, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { getAllPosts } from "../../../redux/postsReducer";
+import { getAllPosts } from "../../redux/postsReducer";
 import { Link } from "react-router-dom";
-import {styles} from "./AllPosts.module.scss";
 
 const AllPosts = () => {
 	const posts = useSelector(getAllPosts);
 	return (
 		<Row xs={1} md={3} className='g-4'>
-			{posts.map(post => (
+			{posts.map(post => 
 				<Col key={post.id}>
 					<Card>
 						<Card.Body>
@@ -26,7 +25,7 @@ const AllPosts = () => {
 						</Card.Body>
 					</Card>
 				</Col>
-			))}
+			)}
 		</Row>
 	);
 };
