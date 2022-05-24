@@ -2,6 +2,7 @@ import { Card, Button, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { getAllPosts } from "../../../redux/postsReducer";
 import { Link } from "react-router-dom";
+import {styles} from "./AllPosts.module.scss";
 
 const AllPosts = () => {
 	const posts = useSelector(getAllPosts);
