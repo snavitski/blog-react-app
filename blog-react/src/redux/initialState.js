@@ -13,7 +13,7 @@ const initialState = {
 			title: "New moon in libra",
 			shortDescription: "What brings you this new moon...",
 			content: "Main content of the article",
-			publishedDate: "03-02-2022",
+			publishedDate: new Date("03-02-2022"),
 			author: "Alicia Key",
 		},
 		{
@@ -21,7 +21,7 @@ const initialState = {
 			title: "Full moon in pisces",
 			shortDescription: "What brings you this full moon...",
 			content: "Main content of the article",
-			publishedDate: "24-02-2022",
+			publishedDate: new Date("24-02-2022"),
 			author: "John Doe",
 		},
 		{
@@ -29,7 +29,7 @@ const initialState = {
 			title: "Inner child",
 			shortDescription: "How to recognize your inner child needs...",
 			content: "Main content of the article",
-			publishedDate: "01-03-2022",
+			publishedDate: new Date("01-03-2022"),
 			author: "Vito Drawn",
 		},
 	],

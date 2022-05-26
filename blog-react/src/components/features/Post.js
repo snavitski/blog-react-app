@@ -4,6 +4,7 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getPostById } from "../../redux/postsReducer";
 import { deletePost } from "../../redux/postsReducer";
+import dateToStr from "../../utils/dateToStr";
 
 const Post = () => {
 	const { id } = useParams();
@@ -59,9 +60,9 @@ const Post = () => {
 					<b>Author:</b> {postData.author}
 				</p>
 				<p>
-					<b>Published:</b> {postData.publishedDate}
+					<b>Published:</b>{dateToStr(postData.publishedDate)}
 				</p>
-				<p>{postData.content}</p>
+				<p dangerousSlySteInnerHTML={{ __html: postData.content}} />
 			</Container>
 		</>
 	);
