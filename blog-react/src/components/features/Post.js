@@ -14,6 +14,7 @@ const Post = () => {
 	const dispatch = useDispatch();
 	const handleClose = () => setShowModal(false);
 	const handleShow = () => setShowModal(true);
+
 	const deletedPost = () => {
 		dispatch(deletePost(postData.id));
 	};
@@ -60,11 +61,13 @@ const Post = () => {
 					<b>Author:</b> {postData.author}
 				</p>
 				<p>
-					<b>Published:</b>{dateToStr(postData.publishedDate)}
+					<b>Published:</b>
+					{dateToStr(postData.publishedDate)}
 				</p>
-				<p dangerousSlySteInnerHTML={{ __html: postData.content}} />
+				<p dangerouslySetInnerHTML={{ __html: postData.content }} />
 			</Container>
 		</>
 	);
 };
+
 export default Post;

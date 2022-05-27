@@ -14,10 +14,13 @@ const AllPosts = () => {
 						<Card.Body>
 							<Card.Title>{post.title}</Card.Title>
 							<Card.Text>
-								<span>Author</span> {post.author}
+								<b>Author:</b> {post.author}
 							</Card.Text>
 							<Card.Text>
-								<span>Published:</span> {dateToStr(post.publishedDate)}
+								<b>Published:</b> {dateToStr(post.publishedDate)}
+							</Card.Text>
+							<Card.Text>
+								<b>Category:</b> {post.category}
 							</Card.Text>
 							<Card.Text>{post.shortDescription}</Card.Text>
 							<Button as={Link} to={"/post/" + post.id} type='primary'>
@@ -30,4 +33,5 @@ const AllPosts = () => {
 		</Row>
 	);
 };
+
 export default AllPosts;

@@ -33,5 +33,6 @@ const initialState = {
 			author: "Vito Drawn",
 		},
 	],
+	categories: ["Sport", "News", "Movies"],
 };
 export default initialState;

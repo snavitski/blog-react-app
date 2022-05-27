@@ -5,6 +5,8 @@ import "react-quill/dist/quill.snow.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
+import { getAllCategories } from "../../redux/categoriesReducer";
 
 const PostForm = ({ action, actionText, ...props }) => {
 	const [title, setTitle] = useState(props.title || "");
@@ -24,17 +26,27 @@ const PostForm = ({ action, actionText, ...props }) => {
 		formState: { errors },
 	} = useForm();
 
+	const categories = useSelector(getAllCategories);
+	const [category, setCategory] = useState(props.category || "");
+
 	const handleSubmit = e => {
 		setContentError(!content);
 		setDateError(!publishedDate);
 		if (content && publishedDate) {
-			action({ title, author, publishedDate, shortDescription, content });
+			action({
+				title,
+				author,
+				publishedDate,
+				shortDescription,
+				content,
+				category,
+			});
 		}
 	};
 
 	return (
 		<Form onSubmit={validate(handleSubmit)}>
-			<Form.Group className='mb-3' controlId='formTitle'>
+			<Form.Group className='mb-3 w-50' controlId='formTitle'>
 				<Form.Label className='mt-3'>Title</Form.Label>
 				<Form.Control
 					{...register("title", { required: true, minLength: 3 })}
@@ -96,6 +108,17 @@ const PostForm = ({ action, actionText, ...props }) => {
 					</small>
 				)}
 			</Form.Group>
+			<Form.Group className='mb-3' controlId='formCategory'>
+				<Form.Label>Category</Form.Label>
+				<Form.Select
+					value={category}
+					onChange={e => setCategory(e.target.value)}>
+					<option>Select Category</option>
+					{categories.map(category => (
+						<option key={category}>{category}</option>
+					))}
+				</Form.Select>
+			</Form.Group>
 			<Form.Group className='mb-3' controlId='formMainContent'>
 				<Form.Label>Main content</Form.Label>
 				<ReactQuill theme='snow' value={content} onChange={setContent} />
@@ -111,4 +134,5 @@ const PostForm = ({ action, actionText, ...props }) => {
 		</Form>
 	);
 };
+
 export default PostForm;
