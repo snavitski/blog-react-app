@@ -17,14 +17,14 @@ function App() {
 			<NavBar />
 			<Container>
 				<Routes>
-					<Route path='/' element={<Home />} />
-					<Route path='/post/:id' element={<PostPage />} />
-					<Route path='/post/add' element={<PostAdd />} />
-					<Route path='/post/edit/:id' element={<PostEdit />} />
-					<Route path='/about' element={<About />} />
-					<Route path='/categories' element={<Categories />} />
-					<Route path='/categories/:categoryName' element={<CategoryPage />} />
-					<Route path='*' element={<NotFound />} />
+					<Route path="/" element={<Home />} />
+					<Route path="/post/:id" element={<PostPage />} />
+					<Route path="/post/add" element={<PostAdd />} />
+					<Route path="/post/edit/:id" element={<PostEdit />} />
+					<Route path="/about" element={<About />} />
+					<Route path="/categories" element={<Categories />} />
+					<Route path="/categories/:categoryName" element={<CategoryPage />} />
+					<Route path="*" element={<NotFound />} />
 				</Routes>
 				<Footer />
 			</Container>
